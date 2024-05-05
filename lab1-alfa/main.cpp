@@ -2,7 +2,7 @@
 #include <time.h>
 using namespace std;
 #include <algorithm>
-int const NMAX = 1000000;
+int const NMAX = 500000;
 void RandomArray(int arr[], int N)
 {
     for (size_t i = 0; i < N; i++)
@@ -150,19 +150,19 @@ void SecundomerSortN2(int arr[],int N, int repead)
         clock_t start = clock();
             sortN2(arr2, N);
         clock_t end = clock();
-        miliseconds[i] = ((double)(end - start));
-
+        miliseconds[i] = ((double)(end - start)); 
         delete arr2;
     }
     double *meaning = new double[3];
     meaning[0] = MIN(miliseconds, repead);
     meaning[1] = MAX(miliseconds, repead);   
     meaning[2] = HALF(miliseconds, repead);
-    cout << "Min" << "\t\tMax" << "\t\tHalf" << endl;
+    cout << "\t\t|\tMin\t|\t\t|\tMax\t|\t\t|\tHalf\t|" << endl;
+    cout << "N = "  << N <<"\t\t";
     for (size_t i = 0; i < 3; i++)
     {
-        cout << meaning[i] << "\t\t"; 
-    }      
+        cout << "|\t"<<  meaning[i] << "\t|\t\t"; 
+    }            
 }
 void SecundomerSortlog(int arr[],int N, int repead)
 {
@@ -181,11 +181,12 @@ void SecundomerSortlog(int arr[],int N, int repead)
     meaning[0] = MIN(miliseconds, repead);
     meaning[1] = MAX(miliseconds, repead);   
     meaning[2] = HALF(miliseconds, repead);
-    cout << "Min" << "\t\tMax" << "\t\tHalf" << endl;
+    cout << "\t\t|\tMin\t|\t\t|\tMax\t|\t\t|\tHalf\t|" << endl;
+    cout << "N = "  << N <<"\t\t";
     for (size_t i = 0; i < 3; i++)
     {
-        cout << meaning[i] << "\t\t"; 
-    }
+        cout << "|\t"<<  meaning[i] << "\t|\t\t"; 
+    }         
 }
 void Secundomerstdsort(int arr[],int N, int repead)
 {
@@ -204,44 +205,45 @@ void Secundomerstdsort(int arr[],int N, int repead)
     meaning[0] = MIN(miliseconds, repead);
     meaning[1] = MAX(miliseconds, repead);   
     meaning[2] = HALF(miliseconds, repead);
-    cout << "Min" << "\t\tMax" << "\t\tHalf" << endl; 
+    cout << "\t\t|\tMin\t|\t\t|\tMax\t|\t\t|\tHalf\t|" << endl;
+    cout << "N = "  << N <<"\t\t";
     for (size_t i = 0; i < 3; i++)
     {
-        cout << meaning[i] << "\t\t"; 
-    }
+        cout << "|\t"<<  meaning[i] << "\t|\t\t"; 
+    }      
 }
 void Collectmean1(int arr[], int N)
 {
-    cout << "---------------------------------------------" << endl;
+    cout << "------------------------------------------------------------------------------------------------------------" << endl;
     //double mean[3];
+    cout << "For sortN2 :";
     SecundomerSortN2(arr,N, 10);
-    cout << "\n---------------------------------------------" << endl;
+    cout << "\n------------------------------------------------------------------------------------------------------------" << endl;
 }
 void Collectmean2(int arr[], int N)
 {
-    cout << "---------------------------------------------" << endl;
+    cout << "------------------------------------------------------------------------------------------------------------" << endl;
     //double mean[3];
+    cout << "For sortlog :";
     SecundomerSortlog(arr,N, 10);
-    cout << "\n---------------------------------------------" << endl;
+    cout << "\n------------------------------------------------------------------------------------------------------------" << endl;
 }
 void Collectmean3(int arr[], int N)
 {
-    cout << "---------------------------------------------" << endl;
+    cout << "------------------------------------------------------------------------------------------------------------" << endl;
+    cout << "For std::sort :";    
     Secundomerstdsort(arr, N, 10);
-    cout << "\n---------------------------------------------" << endl;
+    cout << "\n------------------------------------------------------------------------------------------------------------" << endl;
 }
 void CollectMeanForGraf()
 {
     for (size_t N = 100; N < NMAX; N = N + 100)
     {
         cout << "N = " << N << " :" << endl;
-        cout << "For sortN2:" << endl;
         int *arr = new int[N];
         RandomArray(arr, N);
         Collectmean1(arr, N);
-        cout << "For sortlog:" << endl;
         Collectmean2(arr, N);
-        cout << "For sort::std :"<<endl;
         Collectmean3(arr, N);
         delete arr;
     }
@@ -249,9 +251,6 @@ void CollectMeanForGraf()
 }
 int main()
 {
-    int N = 50000;
-    int* arr = new int[N];
-    
     CollectMeanForGraf();
     return 0;
 }
