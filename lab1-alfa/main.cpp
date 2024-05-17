@@ -77,7 +77,7 @@ void Merg(int arr[], int begin, int end)
     {
         arr[begin+i] = d[i];
     }
-    delete d;
+    delete[] d;
 }
 void mergeSort(int arr[], int left, int right)
 {
@@ -153,7 +153,7 @@ void SecundomerSortN2(int arr[],int N, int repead)
             sortN2(arr2, N);
         clock_t end = clock();
         miliseconds[i] = ((double)(end - start)); 
-        delete arr2;
+        delete[] arr2;
     }
     double *meaning = new double[3];
     meaning[0] = MIN(miliseconds, repead);
@@ -201,7 +201,7 @@ void Secundomerstdsort(int arr[],int N, int repead)
             std::sort(arr,arr + N);
         clock_t end = clock();
         miliseconds[i] = ((double)(end - start));
-        delete arr2;
+        delete[] arr2;
     }
     double *meaning = new double[3];
     meaning[0] = MIN(miliseconds, repead);
@@ -256,7 +256,7 @@ void CollectMeanForTable()
         Collectmean1(arr, N);
         Collectmean2(arr, N);
         Collectmean3(arr, N);
-        delete arr;
+        delete[] arr;
     }
 }
 
@@ -280,7 +280,7 @@ void SecundomerSortN2TXT(int arr[],int N, int repead)
             sortN2(arr2, N);
         clock_t end = clock();
         miliseconds[i] = ((double)(end - start)); 
-        delete arr2;
+        delete[] arr2;
     }
     double *meaning = new double[3];
     meaning[0] = MIN(miliseconds, repead);
@@ -308,7 +308,7 @@ void SecundomerSortlogTXT(int arr[],int N, int repead)
             sortlog(arr2, N);
         clock_t end = clock();
         miliseconds[i] = ((double)(end - start));
-        delete arr2;
+        delete[] arr2;
     }
     double *meaning = new double[3];
     meaning[0] = MIN(miliseconds, repead);
@@ -335,7 +335,7 @@ void SecundomerstdsortTXT(int arr[],int N, int repead)
             std::sort(arr,arr + N);
         clock_t end = clock();
         miliseconds[i] = ((double)(end - start));
-        delete arr2;
+        delete[] arr2;
     }
     double *meaning = new double[3];
     meaning[0] = MIN(miliseconds, repead);
@@ -359,12 +359,12 @@ void CollectMeanForTableTXT()
         SecundomerSortlogTXT(arr, N, 10);
         SecundomerstdsortTXT(arr, N, 10);
         Ntxt << N << endl;
-        delete arr;
+        delete[] arr;
     }
 }
 int main()
 {
-    CollectMeanForTableTXT();
+    CollectMeanForTable();
 
     return 0;
 }
