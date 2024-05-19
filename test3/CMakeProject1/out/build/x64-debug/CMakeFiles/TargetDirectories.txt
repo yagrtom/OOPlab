@@ -1,3 +1,0 @@
-D:/x86/cpp/test3/CMakeProject1/out/build/x64-debug/CMakeFiles/CMakeProject1.dir
-D:/x86/cpp/test3/CMakeProject1/out/build/x64-debug/CMakeFiles/edit_cache.dir
-D:/x86/cpp/test3/CMakeProject1/out/build/x64-debug/CMakeFiles/rebuild_cache.dir
